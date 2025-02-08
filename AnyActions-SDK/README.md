@@ -80,3 +80,7 @@ sphinx-build -b coverage . _build/coverage
 $ poetry run sphinx-coverage -o docs/source/api anyactions/
 $ poetry run sphinx-build -b html docs/source/api docs/build/api   
 ``` -->
+Simple API end-to-end test
+```
+poetry run python tests/anyactions_api_test.py
+```

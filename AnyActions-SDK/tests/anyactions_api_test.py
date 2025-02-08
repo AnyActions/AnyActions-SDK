@@ -2,6 +2,7 @@ import os
 import json
 from dotenv import load_dotenv
 from anyactions.core.client import Client, RequestStatus
+from anyactions.common.constants import DOWNLOAD_EP, CALLBACK_EP
 
 def setup():
     load_dotenv()
@@ -12,9 +13,9 @@ def load_data(json_file: str) -> dict:
 
 def test_get():
     client = Client(os.environ["AWS_GATEWAY_BASE_URL"], os.environ["AWS_GATEWAY_API_KEY"])
-    status, response = client.get("download", load_data("test-files/test-retrieve-not-found.json"))
+    status, response = client.get(DOWNLOAD_EP, load_data("test-files/test-retrieve-not-found.json"))
     assert status == RequestStatus.NOT_FOUND, f"Expected status NOT_FOUND, got {status}"
-    status, response = client.get("download", load_data("test-files/test-retrieve-ok.json"))
+    status, response = client.get(DOWNLOAD_EP, load_data("test-files/test-retrieve-ok.json"))
     assert status == RequestStatus.OK, f"Expected status OK, got {status}"
 
 # def test_save():
@@ -24,7 +25,7 @@ def test_get():
     
 def test_callback():
     client = Client(os.environ["AWS_GATEWAY_BASE_URL"], os.environ["AWS_GATEWAY_API_KEY"])
-    status = client.post("callback", load_data("test-files/test-callback-ok.json"))
+    status = client.post(CALLBACK_EP, load_data("test-files/test-callback-ok.json"))
     assert status == RequestStatus.OK, f"Expected status OK, got {status}"
 
 def main():
