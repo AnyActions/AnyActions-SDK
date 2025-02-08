@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 from typing import List, Dict, Union, Optional
 
 from anyactions.common import *
-from anyactions.core.decorators import *
+from anyactions.core.decorator.decorators import *
 from anyactions.common.procedure.local import *
 from anyactions.core.retrieve import Retriever
 from anyactions.core.client import Client, RequestStatus

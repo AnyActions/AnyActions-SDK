@@ -82,5 +82,5 @@ $ poetry run sphinx-build -b html docs/source/api docs/build/api
 ``` -->
 Simple API end-to-end test
 ```
-poetry run python tests/anyactions_api_test.py
+poetry run python tests/test_anyactions_api.py
 ```

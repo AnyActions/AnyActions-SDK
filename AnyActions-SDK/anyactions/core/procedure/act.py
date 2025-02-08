@@ -4,7 +4,7 @@ import inspect
 from typing import Any, Optional, Union, Tuple, Callable
 
 from anyactions.core.client import Client
-from anyactions.core.decorators import action, generated_action
+from anyactions.core.decorator.decorators import action, generated_action
 
 from anyactions.common import *
 from anyactions.common.constants import *
